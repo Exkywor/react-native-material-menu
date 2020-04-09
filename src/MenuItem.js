@@ -2,7 +2,6 @@ import React from 'react';
 
 import {
   Platform,
-  StyleSheet,
   Text,
   TouchableHighlight,
   TouchableNativeFeedback,
@@ -36,19 +35,7 @@ function MenuItem({
       {...touchableProps}
       {...props}
     >
-      <View style={[styles.container, style]}>
-        <Text
-          ellipsizeMode={ellipsizeMode}
-          numberOfLines={1}
-          style={[
-            styles.title,
-            disabled && { color: disabledTextColor },
-            textStyle,
-          ]}
-        >
-          {children}
-        </Text>
-      </View>
+      {children}
     </Touchable>
   );
 }
@@ -59,20 +46,5 @@ MenuItem.defaultProps = {
   ellipsizeMode: Platform.OS === 'ios' ? 'clip' : 'tail',
   underlayColor: '#e0e0e0',
 };
-
-const styles = StyleSheet.create({
-  container: {
-    height: 48,
-    justifyContent: 'center',
-    maxWidth: 248,
-    minWidth: 124,
-  },
-  title: {
-    fontSize: 14,
-    fontWeight: '400',
-    paddingHorizontal: 16,
-    textAlign: 'left',
-  },
-});
 
 export default MenuItem;
