@@ -3,7 +3,7 @@ import React from 'react';
 import {
   Platform,
   Text,
-  TouchableOpacity
+  TouchableOpacity,
   View,
 } from 'react-native';
 
@@ -24,7 +24,7 @@ function MenuItem({
       {...props}
     >
       {children}
-    </Touchable>
+    </TouchableOpacity>
   );
 }
 
