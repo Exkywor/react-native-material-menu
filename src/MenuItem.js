@@ -3,15 +3,9 @@ import React from 'react';
 import {
   Platform,
   Text,
-  TouchableHighlight,
-  TouchableNativeFeedback,
+  TouchableOpacity
   View,
 } from 'react-native';
-
-const Touchable = Platform.select({
-  android: TouchableNativeFeedback,
-  default: TouchableHighlight,
-});
 
 function MenuItem({
   children,
@@ -23,16 +17,10 @@ function MenuItem({
   textStyle,
   ...props
 }) {
-  const touchableProps =
-    Platform.OS === 'android'
-      ? { background: TouchableNativeFeedback.SelectableBackground() }
-      : {};
-
   return (
-    <Touchable
+    <TouchableOpacity
       disabled={disabled}
       onPress={onPress}
-      {...touchableProps}
       {...props}
     >
       {children}
